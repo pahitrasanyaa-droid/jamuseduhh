@@ -61,11 +61,27 @@ ambil("halaman-katalog").addEventListener("change", tampilkanKatalog);
 
 
 // DAY 2 //
-
 /* ===== MENU LOGIN ==== */
 // Fitur akun login //
 const USERNAME = "otong";
 const PASSWORD = "333";
+
+// Fitur lihat / sembunyikan password
+// melek = password tersembunyi, merem = password terlihat
+const isianPassword = ambil("isian-password");
+const tombolMata = ambil("tombol-mata");
+const ikonMata = ambil("ikon-mata");
+
+function aturMata(terlihat) {
+  isianPassword.type = terlihat ? "text" : "password";
+  ikonMata.src = terlihat ? "ASSET/merem.png" : "ASSET/melek.png";
+  tombolMata.setAttribute("aria-label", terlihat ? "Sembunyikan password" : "Tampilkan password");
+  tombolMata.setAttribute("aria-pressed", String(terlihat));
+}
+
+tombolMata.addEventListener("click", function () {
+  aturMata(isianPassword.type === "password");
+});
 
 // Fitur masuk (login), setelah berhasil kembali ke katalog
 ambil("form-login").addEventListener("submit", function (e) {
@@ -77,10 +93,10 @@ ambil("form-login").addEventListener("submit", function (e) {
   if (benar) {
     localStorage.setItem("masuk", "ya");
     this.reset();
+    aturMata(false);
     location.hash = "#/";
   }
 });
-
 /* ==== MENU DETAIL MENU ===== */
 // Fitur TampiLan detail menu
 function tampilkanDetail(id) {

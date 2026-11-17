@@ -36,24 +36,23 @@ format("truetype");
 }
 
 /* ===== FITUR WARNA ===== */ 
-:root { 
---hijau-tua: #3e2723; 
---hijau: #5d4037; 
---hijau-muda: #663b0b; 
---aksen: #d7a86e; 
---aksen-terang: #f0cf9e; 
---krem: #faf5ee; 
---krem-tua: #f1d7b5; 
---putih: #ffffff; 
---teks: #2b1d17; 
---teks-redup: #7a6558; 
---garis: #e6d8c8; 
---merah: #b3261e; 
---merah-muda: #fdecea; 
---radius: 12px; 
---bayangan: 0 1px 4px rgba(62, 39, 35, 0.1);
-}
-
+:root {
+  --coklat-tua: #53382f;
+  --bergundy: #79121a;
+  --orange-muda: #b83a01;
+  --aksen: #eca325;
+  --aksen-terang: #fb8345;
+  --krem: #fff4e6;
+  --krem-tua: #f7ddbd;
+  --putih: #ffffff;
+  --teks: #2e1b15;
+  --teks-redup: #8a6e37;
+  --garis: #ebd3b5;
+  --merah: #b3261e;
+  --merah-muda: #fdecea;
+  --radius: 12px;
+  --bayangan: 0 1px 4px rgba(62, 39, 35, 0.1);
+  }
 /* ==== FITUR GAYA DASAR ==== */
 *,
 *::before,
@@ -94,7 +93,7 @@ ul {
 }
 
 a {
-  color: var(--hijau);
+  color: var(--bergundy);
 }
 
 button,
@@ -164,10 +163,10 @@ border: 0;
   gap: 6px;
   min-height: 40px;
   padding: 8px 16px;
-  border: 1px solid var(--hijau);
+  border: 1px solid var(--bergundy);
   border-radius: 8px;
   background: var(--putih);
-  color: var(--hijau);
+  color: var(--bergundy);
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
@@ -179,13 +178,13 @@ border: 0;
 }
 
 .tombol-utama {
-  border-color: var(--hijau-tua);
-  background: var(--hijau-tua);
+  border-color: var(--coklat-tua);
+  background: var(--coklat-tua);
   color: var(--putih);
 }
 
 .tombol-utama:hover {
-  background: var(--hijau-muda);
+  background: var(--orange-muda);
 }
 
 .tombol-lebar { 
@@ -242,7 +241,7 @@ cursor: pointer;
 .kolom-isian input:focus, 
 .kolom-isian select:focus, 
 .kolom-isian textarea:focus { 
-border-color: var(--hijau-tua); 
+border-color: var(--coklat-tua); 
 outline: 2px solid var(--aksen); 
 outline-offset: 0; 
 } 
@@ -270,12 +269,58 @@ font-weight: 600;
 display: block; 
 }
 
+/* ==== FITUR LIHAT / SEMBUNYIKAN PASSWORD ==== */
+.kolom-password {
+  position: relative;
+}
+
+.kolom-isian .kolom-password input {
+  padding-right: 48px;
+}
+
+.tombol-mata {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+}
+
+.tombol-mata:hover {
+  background: var(--krem-tua);
+}
+
+.tombol-mata img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  opacity: 0.7;
+}
+
+.tombol-mata:hover img {
+  opacity: 1;
+}
+
+/* Pesan galat tetap muncul karena input dibungkus div */
+.kolom-password:has(input:user-invalid) ~ .pesan-galat {
+  display: block;
+}
+
 /* ===== FITUR LOGO ===== */ 
 .kepala { 
 position: sticky; 
 top: 0; 
 z-index: 10; 
-background: var(--hijau-tua); 
+background: var(--coklat-tua); 
 color: var(--krem); 
 border-bottom: 1px solid #00000033; 
 } 
@@ -349,7 +394,7 @@ gap: 6px;
 padding: 6px 16px; 
 border: 0; 
 border-radius: 8px; 
-background: var(--hijau-tua); 
+background: var(--coklat-tua); 
 color: var(--putih); 
 font-size: 0.85rem; 
 font-weight: 600; 
@@ -357,7 +402,7 @@ cursor: pointer;
 } 
 
 .tombol-cari:hover { 
-background: var(--hijau-muda); 
+background: var(--orange-muda); 
 } 
 
 /* ===== FITUR NAVIGASI DAN LENCANA KERANJANG ===== */ 
@@ -373,9 +418,9 @@ display: inline-flex;
 align-items: center; 
 gap: 6px; 
 padding: 8px 12px; 
-border: 1px solid var(--hijau-muda); 
+border: 1px solid var(--orange-muda); 
 border-radius: 8px; 
-background: var(--hijau); 
+background: var(--bergundy); 
 color: var(--krem); 
 font-size: 0.85rem; 
 font-weight: 600; 
@@ -386,7 +431,7 @@ cursor: pointer;
 .navigasi a:hover, 
 .navigasi button:hover { 
 border-color: var(--aksen); 
-background: var(--hijau-muda); 
+background: var(--orange-muda); 
 } 
 
 .lencana { 
@@ -394,7 +439,7 @@ min-width: 20px;
 padding: 0 6px; 
 border-radius: 999px; 
 background: var(--aksen); 
-color: var(--hijau-tua); 
+color: var(--coklat-tua); 
 font-size: 0.75rem; 
 font-weight: 700; 
 line-height: 20px; 
@@ -412,7 +457,7 @@ body[data-halaman="keranjang"] [data-nav="keranjang"],
 body[data-halaman="checkout"] [data-nav="keranjang"], 
 body[data-halaman="login"] [data-nav="login"] { 
 border-color: var(--aksen); 
-background: var(--hijau-muda); 
+background: var(--orange-muda); 
 } 
 
 /* ===== FITUR TATA LETAK KATALOG ===== */ 
@@ -521,7 +566,7 @@ text-decoration: none;
 } 
 
 .kartu-gambar { 
-background: var(--hijau); 
+background: var(--bergundy); 
 position: relative; 
 aspect-ratio: 1 / 0.9; 
 padding: 10px; 
@@ -712,7 +757,7 @@ box-shadow: 0 10px 30px rgba(62, 39, 35, 0.15);
 
 .masuk-kembali {
   margin-top: 20px;
-  color: var(--hijau);
+  color: var(--bergundy);
   font-size: 0.9rem;
   text-align: center;
 }
@@ -741,7 +786,7 @@ aspect-ratio: 1 / 1;
 overflow: hidden;
 border: 1px solid rgba(240, 207, 158, 0.45);
 border-radius: var(--radius);
-background: var(--hijau);
+background: var(--bergundy);
 }
 
 .detail-gambar .foto {
@@ -833,7 +878,7 @@ gap: 6px;
 width: 28px;
 height: 28px;
 padding: 0;
-border: 1px solid var(--hijau-tua);
+border: 1px solid var(--coklat-tua);
 border-radius: 6px;
 background: var(--putih);
 font-size: 1rem;
@@ -842,7 +887,7 @@ cursor: pointer;
 }
 
 .kasir-jumlah button:hover:not(:disabled) {
-background: var(--hijau-tua);
+background: var(--coklat-tua);
 color: var(--putih);
 }
 
@@ -904,7 +949,7 @@ margin-top: 4px;
 flex-shrink: 0;
 min-height: 52px;
 padding: 8px 22px;
-border: 2px solid var(--hijau-tua);
+border: 2px solid var(--coklat-tua);
 border-radius: 999px;
 background: var(--putih);
 font-weight: 600;
@@ -931,14 +976,14 @@ min-height: 52px;
 padding: 8px 24px;
 border: 0;
 border-radius: 999px;
-background: var(--hijau-tua);
+background: var(--coklat-tua);
 color: var(--putih);
 font-weight: 600;
 cursor: pointer;
 }
 
 .tombol-pesan:hover:not(:disabled) {
-background: var(--hijau-muda);
+background: var(--orange-muda);
 }
 
 .tombol-pesan:disabled {
@@ -976,7 +1021,7 @@ box-shadow: var(--bayangan);
 } 
 
 .baris-gambar { 
-background: var(--hijau); 
+background: var(--bergundy);
 display: flex; 
 align-items: center; 
 justify-content: center; 
@@ -1023,10 +1068,10 @@ gap: 4px;
 width: 38px; 
 min-height: 38px; 
 padding: 0; 
-border: 1px solid var(--hijau); 
+border: 1px solid var(--bergundy); 
 border-radius: 8px; 
 background: var(--putih); 
-color: var(--hijau); 
+color: var(--bergundy); 
 font-size: 1.2rem; 
 font-weight: 700; 
 cursor: pointer; 
@@ -1138,7 +1183,7 @@ justify-content: center;
 width: 28px; 
 height: 28px; 
 border-radius: 50%; 
-background: var(--hijau-tua); 
+background: var(--coklat-tua); 
 color: var(--aksen-terang); 
 font-size: 0.85rem; 
 } 
@@ -1217,7 +1262,7 @@ margin-top: 16px;
 .kaki {
 padding: 28px 0 16px;
 border-top: 3px solid var(--aksen);
-background: var(--hijau-tua);
+background: var(--coklat-tua);
 color: var(--putih);
 font-size: 0.8rem;
 }
@@ -1297,7 +1342,7 @@ margin-top: 10px;
 padding: 4px 18px;
 border-radius: 6px;
 background: var(--krem);
-color: var(--hijau-tua);
+color: var(--coklat-tua);
 font-size: 0.7rem;
 font-weight: 700;
 }
